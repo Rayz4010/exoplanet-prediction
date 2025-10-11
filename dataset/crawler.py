@@ -8,7 +8,7 @@ from typing import List, Optional
 '''Global var'''
 # URLs and API using exoplanet archive
 BASE_URL = "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI"
-API=''
+API='EDk4Sii084RgV8AN5iKNHptnnooBRjLsbqhreHUY'
 
 #columns
 COLUMNS = [
