@@ -128,18 +128,32 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 ## Screenshots
-<div align='center'>
-Candidate and confirmed
+
+### **Candidate and confirmed**
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/candidate.png">
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/output.png">
- ### **Data Visualization**
- Pairplot
+
+
+### **Data Visualization**
+ 
+ 
+#### **Pairplot**
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/pairplot.png">
- Joinplot
+
+
+#### **Joinplot**
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/joinplot.png">
- ### **Data Evaluation**
- Confusion Matrix
+
+
+### **Data Evaluation**
+
+#### Confusion Matrix
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/confmat.png">
 
+### **Output**
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-10-13%20at%2002.46.34.png">
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot 2025-10-13 at 02.47.06.png">
 
+<div align='centre'>
+Build by Rayz4010
 </div>
