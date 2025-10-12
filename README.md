@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="256" height="384" alt="Bella AI" src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/1637006343899.png">
+  <img width="256" height="384" alt="Exoplanet Detection" src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/1637006343899.png">
 
 # Exoplanet Detection Using Light Curves
 
@@ -109,11 +109,11 @@ mindmap
 ## **Tech Stack**
 -->Front-end: **Streamlit**
 -->Backend: 
-    --->Data preparation: **pandas, numpy**
-    --->Data visualization: **Seaborn,matplotlib**
-    --->Model: **Scikitlearn-ensamble, randomforestclassifier**
-    --->Evaluation: **R1score,Confusion matrix, accuracy score** 
-    --->Uploading: **Pickle**
+    --->Data preparation: **pandas, numpy**<br/>
+    --->Data visualization: **Seaborn,matplotlib**<br/>
+    --->Model: **Scikitlearn-ensamble, randomforestclassifier**<br/>
+    --->Evaluation: **R1score,Confusion matrix, accuracy score** <br/>
+    --->Uploading: **Pickle**<br/>
 
 
 ### Development Principles
@@ -122,6 +122,24 @@ mindmap
 - **Emotional Connection**: Core focus on warm, caring emotional connection
 - **Continuous Evolution**: Support for progressive enhancement of features
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+## Screenshots
+<div align='center'>
+Candidate and confirmed
+ <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/candidate.png">
+ <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/output.png">
+ ### **Data Visualization**
+ Pairplot
+ <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/pairplot.png">
+ Joinplot
+ <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/joinplot.png">
+ ### **Data Evaluation**
+ Confusion Matrix
+ <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/confmat.png">
+
+
+</div>
