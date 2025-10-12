@@ -16,28 +16,28 @@
 
  ### **Setup**
 
- ``bash
- #Clone the project
- git clone https://github.com/Rayz4010/exoplanet-prediction.git
- cd exoplanet-detection
+ ``bash<br/>
+ #Clone the project<br/>
+ git clone https://github.com/Rayz4010/exoplanet-prediction.git<br/>
+ cd exoplanet-detection<br/>
 
- #Install Dependencies
+ #Install Dependencies<br/>
 
 
- #start streamlit
- ``bash
- streamlit run app.py 
+ #start streamlit<br/>
+ ``bash<br/>
+ streamlit run app.py <br/>
 
- visit: http://localhost:8501
+ visit: http://localhost:8501<br/>
 
 
  ### **System Requirements**
 #### **Software Requirements:**
--->Python 3.10+
--->Jupyter Notebook / Google Collab / VSC/ or any other IDE that supports python
--->Libraries: **numPy, pandas, matplotlib, scikit-learn, seaborn, streamlit, lightkurve**
+-->Python 3.10+<br/>
+-->Jupyter Notebook / Google Collab / VSC/ or any other IDE that supports python<br/>
+-->Libraries: **numPy, pandas, matplotlib, scikit-learn, seaborn, streamlit, lightkurve**<br/>
 #### **Hardware Requirements:**
--->Minimum: 8GB RAM, CPU- AMD/INTEL/APPLE SILICON (done on Apple Macbook Air M1)
+-->Minimum: 8GB RAM, CPU- AMD/INTEL/APPLE SILICON (done on Apple Macbook Air M1)<br/>
 
 ## **Introduction**
 The idea is to create a machine learning model that can predict if an observation is a real candidate for an exoplanet or not. The data was collected by the Kepler mission that revealed thousands of planets out of our Solar System.<br/>
@@ -59,30 +59,30 @@ Subsequent research explored Recurrent Neural Networks (RNNs) and their variants
 Recently, Transformer architectures have shown remarkable promise in sequential data analysis. Originally developed for natural language processing, Transformers leverage self-attention mechanisms to capture long-range dependencies efficiently [7]. Their ability to process entire sequences in parallel makes them particularly suitable for large-scale astronomical datasets. Studies such as Rao et al. [8] and Zucker & Anglada-Escudé [9] demonstrated that Transformers outperform CNNs and RNNs in detecting exoplanet transits, offering higher accuracy, robustness to noise, and superior scalability.
 In summary, while traditional machine learning and deep learning methods have substantially advanced exoplanet detection, Transformers provide a more powerful and efficient framework. Their ability to model complex, long-term temporal relationships makes them a strong candidate for developing high-precision, automated systems for exoplanet detection.
 ### **References**
-[1] G. W. Henry, "Techniques for detecting exoplanets," Publications of the Astronomical Society of the Pacific, vol. 122, no. 889, pp. 249–257, 2010.
-[2] S. Aigrain and F. Pont, "A Bayesian approach to exoplanet transit detection and validation," Monthly Notices of the Royal Astronomical Society, vol. 419, no. 4, pp. 3147–3158, 2012.
-[3] J. M. Jenkins et al., "The TESS science processing operations center," Publications of the Astronomical Society of the Pacific, vol. 128, no. 964, p. 077001, 2016.
-[4] C. J. Shallue and A. Vanderburg, "Identifying exoplanets with deep learning: A five-planet resonant chain around Kepler-80 and an eighth planet around Kepler-90," The Astronomical Journal, vol. 155, no. 2, p. 94, 2018.
-[5] K. Pearson, D. Roberts, and N. Rogers, "LSTM networks for exoplanet detection from Kepler data," Astronomy and Computing, vol. 25, pp. 52–59, 2018.
-[6] N. Dattilo et al., "Identifying exoplanets with deep learning. II. Two new super-Earths uncovered by a neural network in K2 data," The Astronomical Journal, vol. 157, no. 5, p. 169, 2019.
-[7] A. Vaswani et al., "Attention is all you need," in Proc. Advances in Neural Information Processing Systems (NeurIPS), 2017, pp. 5998–6008.
-[8] S. Rao, R. Sharma, and P. Singh, "Transformer-based light curve classification for exoplanet detection," IEEE Transactions on Artificial Intelligence, vol. 3, no. 2, pp. 134–145, 2022.
-[9] S. Zucker and G. Anglada-Escudé, "Applications of transformer neural networks in exoplanet time-series analysis," Monthly Notices of the Royal Astronomical Society, vol. 524, no. 1, pp. 218–229, 2023.
+[1] G. W. Henry, "Techniques for detecting exoplanets," Publications of the Astronomical Society of the Pacific, vol. 122, no. 889, pp. 249–257, 2010.<br/>
+[2] S. Aigrain and F. Pont, "A Bayesian approach to exoplanet transit detection and validation," Monthly Notices of the Royal Astronomical Society, vol. 419, no. 4, pp. 3147–3158, 2012.<br/>
+[3] J. M. Jenkins et al., "The TESS science processing operations center," Publications of the Astronomical Society of the Pacific, vol. 128, no. 964, p. 077001, 2016.<br/>
+[4] C. J. Shallue and A. Vanderburg, "Identifying exoplanets with deep learning: A five-planet resonant chain around Kepler-80 and an eighth planet around Kepler-90," The Astronomical Journal, vol. 155, no. 2, p. 94, 2018.<br/>
+[5] K. Pearson, D. Roberts, and N. Rogers, "LSTM networks for exoplanet detection from Kepler data," Astronomy and Computing, vol. 25, pp. 52–59, 2018.<br/>
+[6] N. Dattilo et al., "Identifying exoplanets with deep learning. II. Two new super-Earths uncovered by a neural network in K2 data," The Astronomical Journal, vol. 157, no. 5, p. 169, 2019.<br/>
+[7] A. Vaswani et al., "Attention is all you need," in Proc. Advances in Neural Information Processing Systems (NeurIPS), 2017, pp. 5998–6008.<br/>
+[8] S. Rao, R. Sharma, and P. Singh, "Transformer-based light curve classification for exoplanet detection," IEEE Transactions on Artificial Intelligence, vol. 3, no. 2, pp. 134–145, 2022.<br/>
+[9] S. Zucker and G. Anglada-Escudé, "Applications of transformer neural networks in exoplanet time-series analysis," Monthly Notices of the Royal Astronomical Society, vol. 524, no. 1, pp. 218–229, 2023.<br/>
 
 
 ## **Existing System**
-The existing systems for exoplanet detection primarily rely on traditional statistical analysis and machine learning models applied to light curve data from missions such as Kepler and TESS. The Transit Method is the most common approach, where astronomers detect periodic dips in a star’s brightness as a planet passes in front of it. These dips are analyzed using signal processing techniques or statistical thresholding to identify potential exoplanet candidates.
+The existing systems for exoplanet detection primarily rely on traditional statistical analysis and machine learning models applied to light curve data from missions such as Kepler and TESS. The Transit Method is the most common approach, where astronomers detect periodic dips in a star’s brightness as a planet passes in front of it. These dips are analyzed using signal processing techniques or statistical thresholding to identify potential exoplanet candidates.<br/>
 To automate this process, classical machine learning algorithms like Random Forests, Support Vector Machines (SVMs), and Gradient Boosted Trees have been used. These models depend heavily on manually engineered features such as flux variance, periodicity, and signal-to-noise ratio, which limits their adaptability to diverse or noisy datasets.
 Later, deep learning models, particularly Convolutional Neural Networks (CNNs) such as Astronet, improved detection accuracy by learning directly from raw light curve data. However, CNNs primarily capture short-term or localized patterns and are less effective in modeling long-term dependencies or irregular temporal variations in stellar brightness. Recurrent Neural Networks (RNNs) and LSTM-based models improved temporal awareness but suffer from high computational cost and difficulty in handling very long sequences.
 Overall, existing systems have advanced exoplanet detection but still face major challenges in scalability, long-term sequence modeling, and noise robustness, creating a need for a more efficient and adaptive AI-based approach—such as Transformers—to analyze massive light curve datasets with higher precision and reliability.
 
 ## **Proposed System**
-The proposed system aims to automate the detection of exoplanet transits from stellar light curves using a Random Forest Classifier. Random Forest is an ensemble-based supervised learning algorithm that constructs multiple decision trees during training and outputs the majority class as the final prediction. Its ability to handle high-dimensional data, reduce overfitting, and maintain interpretability makes it well-suited for this application.
+The proposed system aims to automate the detection of exoplanet transits from stellar light curves using a Random Forest Classifier. Random Forest is an ensemble-based supervised learning algorithm that constructs multiple decision trees during training and outputs the majority class as the final prediction. Its ability to handle high-dimensional data, reduce overfitting, and maintain interpretability makes it well-suited for this application.<br/>
 The system will utilize Kepler mission light curve datasets, which contain flux measurements recorded over time for thousands of stars. The data will undergo preprocessing steps such as noise reduction, normalization, feature extraction, and outlier removal. Key statistical and temporal features — such as flux variance, skewness, periodogram power, and transit depth — will be derived to represent each light curve in a structured format suitable for machine learning.
 ### The overall workflow of the proposed system includes the following steps:
-**Data Collection: Acquire light curve data from the Kepler exoplanet archive.
-Preprocessing: Clean and normalize the flux data to remove trends, gaps, and noise.
-Feature Extraction: Compute time-series and statistical features that capture brightness variation and periodicity.
-Model Training: Train the Random Forest Classifier on labeled data (planet vs. non-planet). Each tree in the forest learns different feature combinations, enhancing generalization.
-Prediction and Evaluation: Classify unseen light curves and evaluate model performance using accuracy, precision, recall, and F1-score metrics.**
+**Data Collection: Acquire light curve data from the Kepler exoplanet archive.<br/>
+Preprocessing: Clean and normalize the flux data to remove trends, gaps, and noise.<br/>
+Feature Extraction: Compute time-series and statistical features that capture brightness variation and periodicity.<br/>
+Model Training: Train the Random Forest Classifier on labeled data (planet vs. non-planet). Each tree in the forest learns different feature combinations, enhancing generalization.<br/>
+Prediction and Evaluation: Classify unseen light curves and evaluate model performance using accuracy, precision, recall, and F1-score metrics.<br/>**
 This system provides a reliable and computationally efficient method for detecting exoplanet transits without requiring deep learning architectures. By leveraging the ensemble power of Random Forests, the model can handle noise, reduce bias, and achieve strong predictive accuracy even on complex astronomical data. Ultimately, this approach enhances the automation and reliability of exoplanet detection in large-scale datasets.
