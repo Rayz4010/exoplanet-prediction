@@ -86,3 +86,21 @@ Feature Extraction: Compute time-series and statistical features that capture br
 Model Training: Train the Random Forest Classifier on labeled data (planet vs. non-planet). Each tree in the forest learns different feature combinations, enhancing generalization.<br/>
 Prediction and Evaluation: Classify unseen light curves and evaluate model performance using accuracy, precision, recall, and F1-score metrics.<br/>**
 This system provides a reliable and computationally efficient method for detecting exoplanet transits without requiring deep learning architectures. By leveraging the ensemble power of Random Forests, the model can handle noise, reduce bias, and achieve strong predictive accuracy even on complex astronomical data. Ultimately, this approach enhances the automation and reliability of exoplanet detection in large-scale datasets.
+
+### Architecture Diagram
+```mermaid
+mindmap
+  root((Bella))
+    (Perception Layer)
+      (Voice Recognition ASR)
+      (Visual Processing)
+      (Emotion Analysis)
+    (Core Engine)
+      (Thinking Engine LLM)
+      (Memory System)
+      (Emotional State)
+    (Expression Layer)
+      (Speech Synthesis TTS)
+      (Visual Expression)
+      (Interactive UI)
+```
