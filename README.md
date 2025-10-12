@@ -104,3 +104,24 @@ mindmap
       (Streamlit)
       (Interactive UI)
 ```
+
+
+## **Tech Stack**
+-->Front-end: **Streamlit**
+-->Backend: 
+    --->Data preparation: **pandas, numpy**
+    --->Data visualization: **Seaborn,matplotlib**
+    --->Model: **Scikitlearn-ensamble, randomforestclassifier**
+    --->Evaluation: **R1score,Confusion matrix, accuracy score** 
+    --->Uploading: **Pickle**
+
+
+### Development Principles
+- **Elegant Code**: Pursue concise, readable, and beautiful code
+- **AI as a Brush**: AI is a creative tool, not the thought itself
+- **Emotional Connection**: Core focus on warm, caring emotional connection
+- **Continuous Evolution**: Support for progressive enhancement of features
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
