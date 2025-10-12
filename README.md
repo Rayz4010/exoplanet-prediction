@@ -5,3 +5,6 @@
 
 
 **Predicting Exoplanets using light curves**
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ [![Status](https://img.shields.io/badge/Status-Alpha-orange.svg)]()
