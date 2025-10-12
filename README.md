@@ -90,17 +90,17 @@ This system provides a reliable and computationally efficient method for detecti
 ### Architecture Diagram
 ```mermaid
 mindmap
-  root((Bella))
-    (Perception Layer)
-      (Voice Recognition ASR)
-      (Visual Processing)
-      (Emotion Analysis)
+  root((Model))
+    (Data Loading)
+      (Data Preparation)
+      (Data Visualization)
+      (Feature Engineering)
     (Core Engine)
-      (Thinking Engine LLM)
-      (Memory System)
-      (Emotional State)
-    (Expression Layer)
-      (Speech Synthesis TTS)
-      (Visual Expression)
+      (Data Pipeline)
+      (Random Forest Classifier)
+      (Model Evaluation)
+    (Visualization Layer)
+      (LightKurves)
+      (Streamlit)
       (Interactive UI)
 ```
