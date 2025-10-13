@@ -119,7 +119,6 @@ mindmap
 ### Development Principles
 - **Elegant Code**: Pursue concise, readable, and beautiful code
 - **AI as a Brush**: AI is a creative tool, not the thought itself
-- **Emotional Connection**: Core focus on warm, caring emotional connection
 - **Continuous Evolution**: Support for progressive enhancement of features
 
 ## License
