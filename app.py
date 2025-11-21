@@ -49,20 +49,20 @@ elif choose == 'Deployment':
             st.image(img, caption="Uploaded Image", width=300)
 
         if st.button("Predict"):
-            # if your image_to_data expects a filename:
+            st.spinner("Predicting...")
+            time.sleep(3)
             pred(mage.name)
-            # if it expects a file object instead, change pred() accordingly
 
         # Display whatever is stored in state, regardless of whether the button was pressed this run
         if st.session_state["pred_error"]:
             st.error(st.session_state["pred_error"])
         elif st.session_state["pred_result"] is not None:
             if st.session_state["pred_result"] == 0:
-                st.error("False Positive")
+                st.error("Not a planet")
             elif st.session_state["pred_result"] == 1:
-                st.warning("Exoplanet Detected")
+                st.warning("This could be an exoplanet candidate. Further analysis required.")
             else:
-                st.success("Exoplanet Confirmed")
+                st.success("This is an exoplanet")
     else:
         st.info("Please upload a light curve image to begin.")
 
