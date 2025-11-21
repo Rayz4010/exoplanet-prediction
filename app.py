@@ -10,7 +10,7 @@ from documentation import references, captiom_1, captiom_2, abstract, prop_1, pr
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:", layout="centered")
+st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:", layout="wide")
 
 
 # Load the pre-trained model 
