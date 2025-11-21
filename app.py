@@ -18,7 +18,7 @@ model=pkl.load(open('exoplanet_model.pkl', 'rb'))
 
 
 st.sidebar.title("Exoplanet Detection App")
-mode=('Documentations','Deployment','Model Summary')
+mode=('Documentations','Deployment','Model Simulation')
 choose=st.sidebar.selectbox('Select waht you want to do:',mode,)
 st.sidebar.caption(f'you have selected to see the {choose}')
 
@@ -277,5 +277,200 @@ elif choose == 'Deployment':
             
 
 
-elif choose=='Model Summary':
-   
+elif choose=='Model Simulation':
+    st.title("Exoplanet Transit & Light Curve Theory – Interactive Demo")
+    st.divider()
+    st.markdown(
+        """
+    This app shows:
+    - Basic transit depth: ΔF/F ≈ (Rp / R★)²  
+    - A simple transit light curve: F(t) = F₀ · (1 − δ(t))  
+    - A **toy** Box Least Squares (BLS-like) period search on the synthetic data  
+    """
+    )
+
+    st.sidebar.divider()
+    st.sidebar.header("Physical parameters")
+
+    R_star = st.sidebar.number_input("Stellar radius R★ (in Solar radii)", 0.1, 10.0, 1.0, 0.1)
+    R_p = st.sidebar.number_input("Planet radius Rp (in Earth radii)", 0.1, 20.0, 1.0, 0.1)
+
+    # Convert Rp in Earth radii to R_star units (Solar radii) for ratio
+    R_earth_in_Rsun = 1.0 / 109.1  
+    Rp_over_Rstar = (R_p * R_earth_in_Rsun) / R_star
+
+    F0 = st.sidebar.number_input("Baseline flux F₀", 0.1, 10.0, 1.0, 0.1)
+
+    st.sidebar.header("Orbit / Transit parameters")
+    P = st.sidebar.number_input("Orbital period P (days)", 0.5, 100.0, 10.0, 0.5)
+    transit_duration = st.sidebar.number_input("Transit duration (fraction of period)", 0.01, 0.5, 0.05, 0.01)
+    n_periods = st.sidebar.number_input("Number of periods to simulate", 1, 50, 5, 1)
+
+    st.sidebar.header("Noise & Sampling")
+    total_points = st.sidebar.number_input("Number of samples", 100, 20000, 2000, 100)
+    noise_std = st.sidebar.number_input("Gaussian noise σ", 0.0, 0.1, 0.002, 0.001)
+
+
+    depth = Rp_over_Rstar ** 2  
+    
+    st.divider()
+    
+    st.subheader("1. Basic Transit Depth Formula",divider='grey')
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.write("**Depth formula:**")
+        st.latex(r"\frac{\Delta F}{F} \approx \left(\frac{R_p}{R_\star}\right)^2")
+        st.write(f"Numerical value (ΔF/F): **{depth:.6f}**")
+        st.write(f"Percentage drop in flux: **{depth * 100:.4f} %**")
+
+    with col2:
+        st.write("**Inputs interpreted as:**")
+        st.write(f"- Stellar radius R★ = {R_star:.2f} R⊙")
+        st.write(f"- Planet radius Rp = {R_p:.2f} R⊕")
+        st.write(f"- Radius ratio Rp/R★ ≈ {Rp_over_Rstar:.6f}")
+
+    st.divider()
+    st.subheader("2. Simple Transit Light Curve Model",divider='grey')
+
+    # Time array in days
+    t_total = P * n_periods
+    time = np.linspace(0, t_total, int(total_points))
+
+    # Phase in [0, 1)
+    phase = (time % P) / P
+
+    # We'll put the transit centered at phase = 0.5
+    center = 0.5
+    half_width = transit_duration / 2.0
+    in_transit = np.abs(phase - center) < half_width
+
+    # Box model: flux drop = depth during transit, 0 outside
+    flux = F0 * (1.0 - depth * in_transit.astype(float))
+
+    # Add Gaussian noise
+    rng = np.random.default_rng(seed=42)
+    noise = rng.normal(0.0, noise_std, size=time.shape)
+    flux_noisy = flux + noise
+
+    st.markdown(
+        """
+    We use a **box-shaped transit model**:
+
+    - Transit is centered at phase 0.5  
+    - In-transit region has a constant depth ΔF/F  
+    - Out of transit: flux = F₀  
+    - Then we add Gaussian noise  
+    """
+    )
+
+    fig1, ax1 = plt.subplots(figsize=(8, 4))
+    ax1.scatter(time, flux_noisy, s=4, alpha=0.7, label="Noisy flux")
+    ax1.plot(time, flux, linewidth=2, label="True model (no noise)")
+    ax1.set_xlabel("Time [days]")
+    ax1.set_ylabel("Flux")
+    ax1.set_title("Simulated Light Curve")
+    ax1.legend()
+    st.pyplot(fig1)
+
+
+    st.markdown("**Phase-folded light curve (folded on the true period)**")
+
+    fig2, ax2 = plt.subplots(figsize=(8, 4))
+    ax2.scatter(phase, flux_noisy, s=4, alpha=0.7)
+    ax2.set_xlabel("Phase (t mod P / P)")
+    ax2.set_ylabel("Flux")
+    ax2.set_title("Phase-Folded Light Curve")
+    st.pyplot(fig2)
+
+    st.divider()
+    st.subheader("3. Toy Box Least Squares (BLS-like) Period Search",divider='grey')
+
+    st.markdown(
+        """
+    We now try to **recover the period** by scanning a range of trial periods and fitting a simple
+    box model at each trial. For each trial period:
+
+    1. Fold the time series on that period  
+    2. Define a box of the same duration fraction  
+    3. Compute a sum of squared residuals (χ²) between data and the best-fit box model  
+    4. Invert χ² to get a "power" (smaller χ² → higher power)  
+
+    This is a simplified demonstration of the **Box Least Squares** idea.
+    """
+    )
+
+    # Define trial periods around the true P
+    n_trials = 200
+    P_min = P * 0.5
+    P_max = P * 1.5
+    trial_periods = np.linspace(P_min, P_max, n_trials)
+
+    powers = []
+
+    for Pt in trial_periods:
+        # Fold data
+        ph = (time % Pt) / Pt
+
+        # Define in-transit region (same duration fraction)
+        c = 0.5
+        hw = transit_duration / 2.0
+        mask_in = np.abs(ph - c) < hw
+
+        # Simple model: out-of-transit flux = constant, in-transit flux = constant drop
+        F_out = np.median(flux_noisy[~mask_in]) if np.any(~mask_in) else np.median(flux_noisy)
+        F_in = np.median(flux_noisy[mask_in]) if np.any(mask_in) else np.median(flux_noisy)
+
+        model_trial = np.where(mask_in, F_in, F_out)
+
+        # χ² = sum (data - model)^2
+        chi2 = np.sum((flux_noisy - model_trial) ** 2)
+
+        # Convert to "power": lower χ² -> higher power
+        power = 1.0 / chi2 if chi2 > 0 else 0
+        powers.append(power)
+
+    powers = np.array(powers)
+
+    fig3, ax3 = plt.subplots(figsize=(8, 4))
+    ax3.plot(trial_periods, powers, lw=1.5)
+    ax3.axvline(P, color="red", linestyle="--", label="True period")
+    ax3.set_xlabel("Trial period [days]")
+    ax3.set_ylabel("BLS-like power (1 / χ²)")
+    ax3.set_title("Toy BLS Periodogram")
+    ax3.legend()
+    st.pyplot(fig3)
+
+    best_idx = np.argmax(powers)
+    best_P = trial_periods[best_idx]
+
+    st.write(f"Best period detected by toy BLS: **{best_P:.4f} days** (true: {P:.4f} days)")
+
+    st.divider()
+    st.markdown("### What this app is showing in code form")
+
+    st.write("**1. Transit depth formula**")
+    st.latex(r"\frac{\Delta F}{F} \approx \left(\frac{R_p}{R_\star}\right)^2")
+
+    st.write("**2. Light curve model**")
+    st.latex(r"F(t) = F_0 \, (1 - \delta(t))")
+    st.latex(r"\delta(t) = \frac{\Delta F}{F} \text{ during transit, and } 0 \text{ outside}")
+
+    st.write("**3. BLS concept (simplified)**")
+
+    st.write("Fold light curve, fit a box model, then measure fit quality:")
+
+    st.latex(r"\chi^2 = \sum (F_{\text{data}} - F_{\text{model}})^2")
+
+    st.write("Convert χ² into a detection score (lower error → higher power):")
+
+    st.latex(r"Power = \frac{1}{\chi^2}")
+
+    st.markdown(
+        """
+    This is a simplified implementation of how exoplanets are detected from light curves.
+    Next step is connecting the **36 engineered features** to this simulator and generating training-ready datasets.
+    """
+    )
+    st.divider()
