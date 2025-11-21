@@ -7,6 +7,8 @@ import documentation as doc
 from input import entry
 from streamlit_mermaid import st_mermaid as st_md
 from documentation import references, captiom_1, captiom_2, abstract, prop_1, prop_2, dev, tech, system, test
+import numpy as np
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:", layout="centered")
 
@@ -275,5 +277,5 @@ elif choose == 'Deployment':
             
 
 
-else:
-    pass
+elif choose=='Model Summary':
+   
