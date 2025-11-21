@@ -1,5 +1,4 @@
 streamlit-mermaid
-PIL
 pickle
 numpy
 pandas
