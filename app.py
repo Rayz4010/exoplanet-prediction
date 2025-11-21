@@ -6,7 +6,7 @@ import time
 import documentation as doc
 from input import entry
 from streamlit_mermaid import st_mermaid as st_md
-from documentation import references, captiom_1, captiom_2, abstract, prop_1, prop_2
+from documentation import references, captiom_1, captiom_2, abstract, prop_1, prop_2, dev, tech, system, test
 
 st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:", layout="centered")
 
@@ -31,14 +31,20 @@ if choose=='Documentations':
         st.image('assets/1637006343899.png')
     st.write(abstract)
     st.divider()
+    
+    
     st.subheader('Problem Statement',divider='grey')
     st.write(captiom_1)
     st.caption(captiom_2)
     st.divider()
+    
+    
     st.subheader('Proposed System',divider='grey')
     st.write(prop_1)
     st.caption(prop_2)
     st.divider()
+    
+    
     st.subheader('Model Architecture',divider='grey')
     mindmap = """
                 mindmap
@@ -58,12 +64,24 @@ if choose=='Documentations':
                 """
     st_md(mindmap)
     st.divider()
+    
+    
     st.subheader('Tech Stack',divider='grey')
+    st.write(tech)
     st.divider()
+    
+    
     st.subheader('System Requirements',divider='grey')
+    st.write(system)
+    st.warning(test)
     st.divider()
+    
+    
     st.subheader('Deployment Principle',divider='grey') 
+    st.write(dev)
     st.divider()
+    
+    
     st.subheader('References',divider='grey') 
     st.caption(references)
     st.divider()

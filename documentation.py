@@ -58,4 +58,33 @@ Model Training: Train the Random Forest Classifier on labeled data (planet vs. n
 Prediction and Evaluation: Classify unseen light curves and evaluate model performance using accuracy, precision, recall, and F1-score metrics.\n
 This system provides a reliable and computationally efficient method for detecting exoplanet transits without requiring deep learning architectures. By leveraging the ensemble power of Random Forests, the model can handle noise, reduce bias, and achieve strong predictive accuracy even on complex astronomical data. Ultimately, this approach enhances the automation and reliability of exoplanet detection in large-scale datasets.'''
 
-tech=""
+tech='''
+-->Front-end: \tStreamlit \n
+-->Backend:\n 
+\t--->Data preparation: pandas, numpy\n
+\t--->Data visualization: Seaborn,matplotlib\n
+\t--->Model: Scikitlearn-ensamble, randomforestclassifier\n
+\t--->Evaluation: R1score,Confusion matrix, accuracy score\n
+\t--->Uploading: Pickle
+'''
+
+dev='''
+        -->Elegant Code: Pursue concise, readable, and beautiful code \n
+        -->AI as a Brush: AI is a creative tool, not the thought itself \n
+        -->Continuous Evolution: Support for progressive enhancement of features \n
+'''
+
+system='''
+        Software Requirements:\n
+
+        \t-->Python 3.10+\n
+        \t-->Jupyter Notebook / Google Collab / VSC/ or any other IDE that supports python\n
+        \t-->Libraries: numPy, pandas, matplotlib, scikit-learn, seaborn, streamlit, lightkurve\n
+
+        Hardware Requirements:\n
+
+        \t-->Minimum: 8GB RAM, CPU- AMD/INTEL/APPLE SILICON\n 
+        '''
+
+test='''
+(tested on Apple Macbook Air M1)'''
