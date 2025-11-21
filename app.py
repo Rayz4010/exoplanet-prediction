@@ -2,12 +2,16 @@ import streamlit as st
 from PIL import Image
 import pickle as pkl
 from imgtodata import id as image_to_data
+import time 
 
 
 # Load the pre-trained model 
 model=pkl.load(open('exoplanet_model.pkl', 'rb'))
 
 st.title('Exoplanet Detection Using Light Curves')
+st.sidebar.title("Exoplanet Detection App")
+
+
 
 mage = st.file_uploader("Upload a light curve image", type=["png", "jpg", "jpeg"])
 def pred(mage):
