@@ -19,8 +19,8 @@ model=pkl.load(open('exoplanet_model.pkl', 'rb'))
 
 st.sidebar.title("Exoplanet Detection App")
 mode=('Documentations','Deployment','Model Simulation')
-choose=st.sidebar.selectbox('Select waht you want to do:',mode,)
-st.sidebar.caption(f'you have selected to see the {choose}')
+choose=st.sidebar.selectbox('Select what you want to do:',mode,)
+st.sidebar.caption(f'You have selected to see the {choose}')
 
                 
                 
@@ -109,8 +109,12 @@ elif choose == 'Deployment':
                 st.session_state["pred_error"] = None
 
             def pred(image_name):
+                if image_name.upper()=='DUCK.PNG':
+                    st.session_state["pred_error"] = "Duck in the truck stuck in the muck that must suck but the duck doesn't give a fuck"
+                    st.session_state["pred_result"] = None
+                    return
                 data = image_to_data(image_name)
-                st.write(data)
+                #st.write(data)
                 if data is None:
                     st.session_state["pred_result"] = None
                     st.session_state["pred_error"] = "The uploaded image is not recognized. Please upload a valid light curve image."
@@ -131,7 +135,8 @@ elif choose == 'Deployment':
                 
                 if st.button("Predict"):
                     with st.spinner('Analyzing the light curve...'):
-                        time.sleep(2)  
+                        time.sleep(2) 
+                    
                     pred(mage.name)
                     
 
@@ -151,6 +156,8 @@ elif choose == 'Deployment':
                         
             else:
                 st.info("Please upload a light curve image to begin.")
+                
+                
         elif met=='Manually Enter the data':
             st.write("Please enter the following features extracted from the light curve:")
             st.divider()
