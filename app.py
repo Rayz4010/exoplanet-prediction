@@ -5,6 +5,8 @@ from imgtodata import id as image_to_data
 import time 
 import documentation as doc
 from input import entry
+from streamlit_mermaid import st_mermaid as st_md
+from documentation import references, captiom_1, captiom_2, abstract, prop_1, prop_2
 
 st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:", layout="centered")
 
@@ -12,7 +14,7 @@ st.set_page_config(page_title="Exoplanet Detection App", page_icon=":telescope:"
 # Load the pre-trained model 
 model=pkl.load(open('exoplanet_model.pkl', 'rb'))
 
-st.title('Exoplanet Detection Using Light Curves')
+
 st.sidebar.title("Exoplanet Detection App")
 mode=('Documentations','Deployment','Model Summary')
 choose=st.sidebar.selectbox('Select waht you want to do:',mode,)
@@ -21,15 +23,66 @@ st.sidebar.caption(f'you have selected to see the {choose}')
                 
                 
 if choose=='Documentations':
-    pass
+    st.title('Exoplanet Detection Using Light Curves',width="content")
+    st.divider()
+    st.subheader('Abstract',divider='grey')
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        st.image('assets/1637006343899.png')
+    st.write(abstract)
+    st.divider()
+    st.subheader('Problem Statement',divider='grey')
+    st.write(captiom_1)
+    st.caption(captiom_2)
+    st.divider()
+    st.subheader('Proposed System',divider='grey')
+    st.write(prop_1)
+    st.caption(prop_2)
+    st.divider()
+    st.subheader('Model Architecture',divider='grey')
+    mindmap = """
+                mindmap
+                root((Model))
+                    (Data Loading)
+                     (Data Preparation)
+                     (Data Visualization)
+                     (Feature Engineering)
+                    (Core Engine)
+                     (Data Pipeline)
+                     (Random Forest Classifier)
+                     (Model Evaluation)
+                    (Visualization Layer)
+                     (LightKurves)
+                     (Streamlit)
+                     (Interactive UI)
+                """
+    st_md(mindmap)
+    st.divider()
+    st.subheader('Tech Stack',divider='grey')
+    st.divider()
+    st.subheader('System Requirements',divider='grey')
+    st.divider()
+    st.subheader('Deployment Principle',divider='grey') 
+    st.divider()
+    st.subheader('References',divider='grey') 
+    st.caption(references)
+    st.divider()
+
+    
+
+
+
+
 elif choose == 'Deployment':
+        st.title('Practical Demonstration')
+        st.divider()
         met=st.selectbox("Select whether you want to upload an image or amnually enter data:",['','Upload Image','Manually Enter the data'])
+        st.divider()
         if met=='':
             pass
         if met=='Upload Image':
-            st.write(f"so you have chose {met} option")
             mage = st.file_uploader("Upload a light curve image", type=["png", "jpg", "jpeg"])
-
+            st.divider()
             # Initialize session state for prediction
             if "pred_result" not in st.session_state:
                 st.session_state["pred_result"] = None
@@ -80,14 +133,14 @@ elif choose == 'Deployment':
                 st.info("Please upload a light curve image to begin.")
         elif met=='Manually Enter the data':
             st.write("Please enter the following features extracted from the light curve:")
-
+            st.divider()
             
             st.subheader("1. Basic Flux Statistics",divider='rainbow')
 
             mean_flux = st.number_input("1. Mean flux")
             median_flux = st.number_input("2. Median flux")
-            std_flux = st.number_input("3. Standard deviation of flux")
-            skew_flux = st.number_input("4. Flux skewness")
+            std_flux = 4.71e-06
+            skew_flux = -4.71e-06
             kurt_flux = st.number_input("5. Flux kurtosis")
             snr = st.number_input("6. Signal-to-noise ratio (SNR)")
             rms_residuals = st.number_input("7. RMS of residuals (after detrending)")
