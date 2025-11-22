@@ -150,8 +150,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
  <img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/confmat.png">
 
 ### **Output**
-<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-10-13%20at%2002.46.34.png">
-<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot 2025-10-13 at 02.47.06.png">
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-11-22%20at%2015.08.23.png">
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-11-22%20at%2015.08.55.png">
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-11-22%20at%2015.09.59.png">
+<img src="https://github.com/Rayz4010/exoplanet-prediction/blob/main/assets/Screenshot%202025-11-22%20at%2015.10.15.png">
 
 <div align='centre'>
 Build by Rayz4010
